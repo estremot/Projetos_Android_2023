@@ -19,11 +19,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Toast.makeText(this,"UNIFUNEC",Toast.LENGTH_LONG).show();
         setTitle("Lista de Alunos");
+
+        //Simulação de uma Consulta de Alunos cadastrados em um banco
         List<String> alunos = new ArrayList<>(
-                Arrays.asList("Marcos", "Otoni","Codinhoto")
+                Arrays.asList("Marcos", "Otoni","Codinhoto","Marcela")
         );
 
         ListView lista_Alunos = findViewById(R.id.lst_Alunos);
-        lista_Alunos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,alunos));
+        lista_Alunos.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,alunos));
     }
 }
