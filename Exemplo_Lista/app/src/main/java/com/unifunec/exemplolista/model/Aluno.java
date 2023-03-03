@@ -2,7 +2,9 @@ package com.unifunec.exemplolista.model;
 
 import androidx.annotation.NonNull;
 
-public class Aluno {
+import java.io.Serializable;
+
+public class Aluno implements Serializable {
     private final String nome;
     private final String telefone;
     private final String email;
@@ -16,6 +18,18 @@ public class Aluno {
     @NonNull
     @Override
     public String toString() {
-        return nome;
+       return getNome();
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 }

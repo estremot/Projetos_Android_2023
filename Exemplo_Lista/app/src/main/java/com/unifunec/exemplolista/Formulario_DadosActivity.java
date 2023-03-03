@@ -1,9 +1,11 @@
 package com.unifunec.exemplolista;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,7 @@ public class Formulario_DadosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_dados);
-
+        setTitle("Cadastro de Alunos");
         AlunoDAO alunoDAO = new AlunoDAO();
 
         final EditText campoNome = findViewById(R.id.txt_nome);
@@ -31,19 +33,33 @@ public class Formulario_DadosActivity extends AppCompatActivity {
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nome = campoNome.getText().toString();
-                String telefone = campoTelefone.getText().toString();
-                String email = campoEmail.getText().toString();
 
-               Aluno alunoCriado = new Aluno(nome, telefone, email);
-                //Toast.makeText(Formulario_DadosActivity.this,alunoCriado.getNome() + " - " +
-                //        alunoCriado.getTelefone() + " - " + alunoCriado.getEmail(),Toast.LENGTH_LONG).show();
+                Aluno alunoCriado = criaAluno(campoNome, campoTelefone, campoEmail);
+                salva(alunoCriado);
+            }
 
+            private void salva(Aluno alunoCriado) {
                 alunoDAO.salva(alunoCriado);
 
-                Intent it = new Intent(Formulario_DadosActivity.this, MainActivity.class);
-                startActivity(it);
+                finish(); //tem a mesma ação de chamar o Intent... aquie ele destrói a activity atual
             }
         });
+
+        Intent dados = getIntent();
+        Aluno aluno1 = (Aluno) dados.getSerializableExtra("aluno");
+
+        campoNome.setText(aluno1.getNome());
+        campoTelefone.setText(aluno1.getTelefone());
+        campoEmail.setText(aluno1.getEmail());
+    }
+
+    @NonNull
+    private Aluno criaAluno(EditText campoNome, EditText campoTelefone, EditText campoEmail) {
+        String nome = campoNome.getText().toString();
+        String telefone = campoTelefone.getText().toString();
+        String email = campoEmail.getText().toString();
+
+        Aluno alunoCriado = new Aluno(nome, telefone, email);
+        return alunoCriado;
     }
 }
