@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Exemplo Lista</string>
+    <string name="app_cad_aluno">Cadastro de Alunos</string>
 </resources>

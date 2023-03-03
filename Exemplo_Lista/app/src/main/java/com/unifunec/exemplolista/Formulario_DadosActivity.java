@@ -20,6 +20,7 @@ public class Formulario_DadosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_dados);
 
         AlunoDAO alunoDAO = new AlunoDAO();
+
         final EditText campoNome = findViewById(R.id.txt_nome);
         final EditText campoTelefone = findViewById(R.id.txt_Telefone);
         final EditText campoEmail = findViewById(R.id.txt_email);
@@ -39,6 +40,9 @@ public class Formulario_DadosActivity extends AppCompatActivity {
                 //        alunoCriado.getTelefone() + " - " + alunoCriado.getEmail(),Toast.LENGTH_LONG).show();
 
                 alunoDAO.salva(alunoCriado);
+
+                Intent it = new Intent(Formulario_DadosActivity.this, MainActivity.class);
+                startActivity(it);
             }
         });
     }

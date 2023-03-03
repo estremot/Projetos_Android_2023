@@ -8,8 +8,6 @@ public class Aluno {
     private final String email;
 
     public Aluno(String nome, String telefone, String email) {
-
-
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Toast.makeText(this,"UNIFUNEC",Toast.LENGTH_LONG).show();
 
+        //mapeando o botão para chamar o Cadastro de Alunos
 
         FloatingActionButton fab = findViewById(R.id.addAluno);
         AlunoDAO dao = new AlunoDAO();
