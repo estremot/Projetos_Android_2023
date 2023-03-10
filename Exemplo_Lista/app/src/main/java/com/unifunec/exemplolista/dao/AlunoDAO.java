@@ -10,6 +10,7 @@ public class AlunoDAO {
     private final static List<Aluno> alunos = new ArrayList<>();
     public void salva(Aluno aluno)
     {
+
         alunos.add(aluno);
     }
 

@@ -35,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         dao.salva(new Aluno("Marcos","18981871484","estremot@gmail.com"));
         dao.salva(new Aluno("Maria","18981871010","teste@gmail.com"));
+        dao.salva(new Aluno("Luiz","18981871011","teste2@gmail.com"));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(MainActivity.this,Formulario_DadosActivity.class));
             }
         });
@@ -74,4 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
