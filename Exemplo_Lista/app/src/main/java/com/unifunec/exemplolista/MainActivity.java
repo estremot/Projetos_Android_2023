@@ -64,12 +64,23 @@ public class MainActivity extends AppCompatActivity {
         lista_Alunos.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, dao.todos()));
 
+        lista_Alunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Log.i("Clique Longo", ""+i);
+                Aluno alunoEscolhido = (Aluno) adapterView.getItemAtPosition(i);
+                dao.remove(alunoEscolhido);
+
+                return true;
+            }
+        });
         lista_Alunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Log.i("Posicao: ", " "+posicao);
 
-                Aluno alunoEscolhido = alunos.get(posicao);
+               // Aluno alunoEscolhido = alunos.get(posicao);
+                Aluno alunoEscolhido = (Aluno) adapterView.getItemAtPosition(posicao);
                 Intent form = new Intent(MainActivity.this,Formulario_DadosActivity.class);
                 form.putExtra("aluno", alunoEscolhido);
                 startActivity(form);

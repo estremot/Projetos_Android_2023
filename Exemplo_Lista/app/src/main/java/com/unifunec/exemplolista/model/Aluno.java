@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 public class Aluno implements Serializable {
+
+    private int id = 0;
     private final String nome;
     private final String telefone;
     private final String email;
@@ -31,5 +33,13 @@ public class Aluno implements Serializable {
 
     public String getEmail() {
         return this.email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

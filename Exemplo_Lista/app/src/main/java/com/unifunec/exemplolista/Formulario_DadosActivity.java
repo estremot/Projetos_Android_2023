@@ -36,6 +36,8 @@ public class Formulario_DadosActivity extends AppCompatActivity {
 
                 Aluno alunoCriado = criaAluno(campoNome, campoTelefone, campoEmail);
                 salva(alunoCriado);
+
+                //alunoDAO.edita();
             }
 
             private void salva(Aluno alunoCriado) {
